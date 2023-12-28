@@ -7,7 +7,7 @@ import { IProduct } from './product.model';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent {
-  products: IProduct[] = [];
+  products: any;
   filter: string= '';
 
   constructor() {
@@ -158,12 +158,15 @@ export class CatalogComponent {
       },
     ];
   }
+  
+  addToCart(product: IProduct) {
+  }
 
 
   getFilteredProducts() {
     return this.filter === ''
     ? this.products
-    : this.products.filter((product) => product.category === this.filter);
+    : this.products.filter((product: any) => product.category === this.filter);
   }
 
 }
